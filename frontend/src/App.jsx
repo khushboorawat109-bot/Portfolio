@@ -80,26 +80,6 @@ function App() {
         {/* Footer */}
         <footer className={`py-10 px-6 border-t text-center ${theme === 'dark' ? 'border-slate-800/60 text-slate-500' : 'border-slate-200 text-slate-500'}`}>
           <div className="max-w-4xl mx-auto space-y-6">
-            {/* Social Links */}
-            <div className="flex justify-center space-x-5">
-              <a href="https://linkedin.com/in/khushboo-rawat" target="_blank" rel="noopener noreferrer"
-                className="p-2.5 rounded-full border border-slate-700 hover:border-blue-500 hover:text-blue-500 transition-colors duration-200">
-                <Globe size={18} />
-              </a>
-              <a href="https://github.com/KhushbooRawat" target="_blank" rel="noopener noreferrer"
-                className="p-2.5 rounded-full border border-slate-700 hover:border-slate-400 hover:text-slate-200 transition-colors duration-200">
-                <Globe size={18} />
-              </a>
-              <a href="mailto:khushboo.rawat@example.com"
-                className="p-2.5 rounded-full border border-slate-700 hover:border-purple-500 hover:text-purple-500 transition-colors duration-200">
-                <Mail size={18} />
-              </a>
-              <a href="https://codechef.com" target="_blank" rel="noopener noreferrer"
-                className="p-2.5 rounded-full border border-slate-700 hover:border-orange-500 hover:text-orange-400 transition-colors duration-200 text-xs font-bold font-mono flex items-center justify-center w-9 h-9">
-                CC
-              </a>
-            </div>
-
             <p className="text-sm font-sans">
               Made with ❤️ by{' '}
               <span className="font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
