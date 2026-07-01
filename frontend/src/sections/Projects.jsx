@@ -35,21 +35,27 @@ export default function Projects({ theme = 'dark' }) {
   const isDark = theme === 'dark';
 
   return (
-    <section className={`py-20 px-4 sm:px-6 lg:px-8 ${
-      isDark 
-        ? 'bg-gradient-to-b from-slate-900 to-slate-800' 
-        : 'bg-gradient-to-b from-gray-50 to-white'
-    }`}>
+    <section
+      id="projects"
+      className={`scroll-mt-24 py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden ${
+        isDark
+          ? 'bg-[#050811] text-slate-100'
+          : 'bg-slate-50 text-slate-800'
+      }`}
+    >
+      {isDark && (
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.14),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(168,85,247,0.16),_transparent_35%)] pointer-events-none" />
+      )}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-6xl mx-auto"
+        className="relative z-10 max-w-6xl mx-auto"
       >
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className={`text-4xl sm:text-5xl font-bold mb-4 ${
-            isDark ? 'text-white' : 'text-gray-900'
+            isDark ? 'text-slate-100' : 'text-gray-900'
           }`}>
             Featured Projects
           </h2>
@@ -68,9 +74,9 @@ export default function Projects({ theme = 'dark' }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`group rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border ${
-                isDark 
-                  ? 'bg-slate-800 border-slate-700 hover:border-blue-500' 
+              className={`group rounded-2xl shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_18px_50px_rgba(2,6,23,0.42)] hover:shadow-[0_0_0_1px_rgba(59,130,246,0.25),0_24px_60px_rgba(59,130,246,0.18)] transition-all duration-300 overflow-hidden border ${
+                isDark
+                  ? 'bg-slate-900/95 border-slate-800 hover:border-blue-500/60'
                   : 'bg-white border-gray-200 hover:border-blue-500'
               }`}
             >
@@ -84,8 +90,8 @@ export default function Projects({ theme = 'dark' }) {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className={`text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors ${
-                  isDark ? 'text-white' : 'text-gray-900'
+                <h3 className={`text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors ${
+                  isDark ? 'text-slate-100' : 'text-gray-900'
                 }`}>
                   {project.title}
                 </h3>
@@ -98,7 +104,7 @@ export default function Projects({ theme = 'dark' }) {
                 )}
 
                 <p className={`mb-4 leading-relaxed ${
-                  isDark ? 'text-slate-300' : 'text-gray-600'
+                  isDark ? 'text-slate-400' : 'text-gray-600'
                 }`}>
                   {project.description}
                 </p>
@@ -109,8 +115,8 @@ export default function Projects({ theme = 'dark' }) {
                     <span
                       key={idx}
                       className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                        isDark 
-                          ? 'bg-blue-900/40 text-blue-300' 
+                        isDark
+                          ? 'bg-slate-800/90 text-slate-200 border border-slate-700'
                           : 'bg-blue-100 text-blue-800'
                       }`}
                     >
@@ -138,7 +144,7 @@ export default function Projects({ theme = 'dark' }) {
                     rel="noopener noreferrer"
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors duration-300 font-semibold ${
                       isDark
-                        ? 'bg-slate-700 text-white hover:bg-slate-600'
+                        ? 'bg-slate-800 text-slate-100 hover:bg-slate-700 border border-slate-700/80'
                         : 'bg-gray-800 text-white hover:bg-gray-900'
                     }`}
                   >
@@ -166,9 +172,9 @@ export default function Projects({ theme = 'dark' }) {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border p-5 group ${
-                    isDark 
-                      ? 'bg-slate-800 border-slate-700' 
+                  className={`rounded-2xl shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_12px_36px_rgba(2,6,23,0.28)] hover:shadow-[0_0_0_1px_rgba(59,130,246,0.18),0_16px_44px_rgba(59,130,246,0.12)] transition-all duration-300 overflow-hidden border p-5 group ${
+                    isDark
+                      ? 'bg-slate-900/95 border-slate-800'
                       : 'bg-white border-gray-200'
                   }`}
                 >
@@ -179,14 +185,14 @@ export default function Projects({ theme = 'dark' }) {
                     }`} />
                   </div>
 
-                  <h4 className={`text-lg font-bold mb-2 group-hover:text-blue-600 transition-colors ${
-                    isDark ? 'text-white' : 'text-gray-900'
+                  <h4 className={`text-lg font-bold mb-2 group-hover:text-blue-400 transition-colors ${
+                    isDark ? 'text-slate-100' : 'text-gray-900'
                   }`}>
                     {project.title}
                   </h4>
 
                   <p className={`text-sm mb-4 line-clamp-2 ${
-                    isDark ? 'text-slate-300' : 'text-gray-600'
+                    isDark ? 'text-slate-400' : 'text-gray-600'
                   }`}>
                     {project.description}
                   </p>
@@ -196,8 +202,8 @@ export default function Projects({ theme = 'dark' }) {
                       <span
                         key={idx}
                         className={`px-2 py-1 text-xs font-semibold rounded ${
-                          isDark 
-                            ? 'bg-slate-700 text-slate-300' 
+                          isDark
+                            ? 'bg-slate-800/90 text-slate-200 border border-slate-700'
                             : 'bg-gray-100 text-gray-700'
                         }`}
                       >
@@ -207,7 +213,7 @@ export default function Projects({ theme = 'dark' }) {
                     {project.technologies.length > 2 && (
                       <span className={`px-2 py-1 text-xs ${
                         isDark 
-                          ? 'bg-slate-700 text-slate-300' 
+                          ? 'bg-slate-800 text-slate-300 border border-slate-700' 
                           : 'bg-gray-100 text-gray-700'
                       }`}>
                         +{project.technologies.length - 2}
@@ -233,7 +239,7 @@ export default function Projects({ theme = 'dark' }) {
                       rel="noopener noreferrer"
                       className={`flex-1 flex items-center justify-center gap-1 px-3 py-2 text-sm rounded transition-colors ${
                         isDark
-                          ? 'bg-slate-700 text-white hover:bg-slate-600'
+                          ? 'bg-slate-800 text-slate-100 hover:bg-slate-700 border border-slate-700/80'
                           : 'bg-gray-800 text-white hover:bg-gray-900'
                       }`}
                     >

@@ -49,7 +49,7 @@ const Education = () => {
               <div className="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800/40 hover:shadow-[0_0_30px_rgba(168,85,247,0.03)] transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
                   <div>
-                    <h3 className="text-xl font-bold text-slate-100 light:text-slate-850">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
                       {edu.degree}
                     </h3>
                     <p className="text-base text-purple-400 light:text-purple-600 font-semibold mt-1">
@@ -58,7 +58,7 @@ const Education = () => {
                   </div>
                   
                   {/* Meta items */}
-                  <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-400 light:text-slate-500 font-mono">
+                  <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-mono">
                     <div className="flex items-center space-x-1.5 bg-slate-900 light:bg-slate-100 px-3 py-1 rounded-full border border-slate-800/50 light:border-slate-200">
                       <Calendar size={14} className="text-purple-500" />
                       <span>{edu.duration}</span>
@@ -66,7 +66,7 @@ const Education = () => {
                   </div>
                 </div>
 
-                <p className="text-slate-450 light:text-slate-600 leading-relaxed font-sans mb-6 text-sm sm:text-base">
+                <p className="text-slate-700 dark:text-slate-400 leading-relaxed font-sans mb-6 text-sm sm:text-base">
                   {edu.desc}
                 </p>
 
@@ -80,7 +80,7 @@ const Education = () => {
 
                 {/* Coursework list */}
                 <div className="space-y-3">
-                  <h4 className="text-sm font-bold text-slate-350 light:text-slate-750 font-mono uppercase flex items-center space-x-2">
+                  <h4 className="text-sm font-bold text-slate-700 dark:text-slate-300 font-mono uppercase flex items-center space-x-2">
                     <BookOpen size={14} className="text-blue-500" />
                     <span>Relevant Coursework</span>
                   </h4>

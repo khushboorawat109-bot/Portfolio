@@ -7,7 +7,7 @@ const roles = [
   "B.Tech CSE Student",
   "Front-End Developer",
   "Problem Solver",
-  "Exploring AI"
+  "AI Enthusiast"
 ];
 
 const Hero = ({ theme }) => {
@@ -94,7 +94,7 @@ const Hero = ({ theme }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="h-10 text-lg sm:text-xl md:text-2xl font-medium text-slate-300 light:text-slate-700 font-sans"
           >
-            <span className="text-slate-400 light:text-slate-500">I am an aspiring </span>
+            <span className="text-slate-400 light:text-slate-500">I’m a </span>
             <span className="text-blue-500 dark:text-blue-400 font-semibold typing-cursor">
               {roleText}
             </span>

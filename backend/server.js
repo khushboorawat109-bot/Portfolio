@@ -17,6 +17,13 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Portfolio backend is running.' });
 });
 
+app.get('/api/contact', (req, res) => {
+  res.json({
+    success: true,
+    message: 'Contact form endpoint is ready. Please submit the form using POST.'
+  });
+});
+
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
   const { name, email, subject, message } = req.body;

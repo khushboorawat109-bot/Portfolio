@@ -43,7 +43,7 @@ const Counter = ({ value, suffix }) => {
   }, [isInView, value]);
 
   return (
-    <span ref={ref} className="text-4xl sm:text-5xl font-black font-mono tracking-tight text-white">
+    <span ref={ref} className="text-4xl sm:text-5xl font-black font-mono tracking-tight text-slate-900 dark:text-white">
       {count}
       <span className="text-blue-500">{suffix}</span>
     </span>
@@ -85,8 +85,8 @@ const Achievements = () => {
               </div>
               <div className="flex flex-col">
                 <Counter value={stat.value} suffix={stat.suffix} />
-                <span className="text-base font-bold text-slate-350 light:text-slate-700 mt-2 font-sans">{stat.label}</span>
-                <span className="text-xs text-slate-500 mt-1 font-mono">{stat.desc}</span>
+                <span className="text-base font-bold text-slate-700 dark:text-slate-200 mt-2 font-sans">{stat.label}</span>
+                <span className="text-xs text-slate-600 dark:text-slate-400 mt-1 font-mono">{stat.desc}</span>
               </div>
             </motion.div>
           ))}
@@ -104,10 +104,10 @@ const Achievements = () => {
             <Shield size={36} />
           </div>
           <div className="text-left space-y-2">
-            <h3 className="text-lg font-bold text-slate-100 light:text-slate-850 font-sans">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 font-sans">
               CodeChef Diamond Problem Solver Badge
             </h3>
-            <p className="text-sm text-slate-400 light:text-slate-600 leading-relaxed font-sans">
+            <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed font-sans">
               Achieving the Diamond Badge highlights dedication and advanced logic implementation, solving over 1,000 algorithmic problems across matrices, sorting, strings, and tree data structures. Active participant in short-format competitive coding runs.
             </p>
           </div>

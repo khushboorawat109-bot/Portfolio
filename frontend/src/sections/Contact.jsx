@@ -37,20 +37,25 @@ const Contact = ({ theme }) => {
 
     setStatus('loading');
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiBaseUrl}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
 
-      const data = await response.json();
+      const contentType = response.headers.get('content-type') || '';
+      const data = contentType.includes('application/json')
+        ? await response.json()
+        : { message: await response.text() };
+
       if (response.ok) {
         setStatus('success');
         setStatusMessage(data.message || 'Thank you! Your message has been sent successfully.');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         setStatus('error');
-        setStatusMessage(data.error || 'Something went wrong. Please try again.');
+        setStatusMessage(data.error || data.message || 'Something went wrong. Please try again.');
       }
     } catch (err) {
       console.error(err);
@@ -90,16 +95,16 @@ const Contact = ({ theme }) => {
           >
             <div className="flex items-center justify-between">
               <div className="space-y-2 flex-1">
-                <span className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/30 text-blue-300 text-xs font-bold rounded-full">
+                <span className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/20 text-blue-800 dark:text-blue-300 text-xs font-bold rounded-full">
                   <Link2 size={14} /> FEATURED
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
                   Connect with me on LinkedIn
                 </h3>
-                <p className="text-slate-300 text-sm">Khushboo Rawat - B.Tech CSE | Software Developer & Frontend Engineer</p>
+                <p className="text-slate-700 dark:text-slate-300 text-sm">Khushboo Rawat - B.Tech CSE | Software Developer & Frontend Engineer</p>
               </div>
               <div className="hidden sm:flex items-center justify-center w-12 h-12 bg-blue-500/30 rounded-xl group-hover:bg-blue-500/50 transition-all">
-                <ArrowRight size={24} className="text-white group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={24} className="text-slate-900 dark:text-white group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           </a>
@@ -116,10 +121,10 @@ const Contact = ({ theme }) => {
             className="lg:col-span-5 space-y-6 text-left flex flex-col justify-between"
           >
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-slate-100 light:text-slate-800">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                 Let's discuss a project!
               </h3>
-              <p className="text-sm sm:text-base text-slate-400 light:text-slate-650 leading-relaxed font-sans">
+              <p className="text-sm sm:text-base text-slate-700 dark:text-slate-400 leading-relaxed font-sans">
                 I am interested in internship opportunities and software developer roles. If you have a question, an opportunity, or just want to say hi, feel free to reach out!
               </p>
             </div>
@@ -131,8 +136,8 @@ const Contact = ({ theme }) => {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <span className="block text-[11px] font-mono text-slate-550 uppercase">Email Me</span>
-                  <a href="mailto:khushboorawat109@gmail.com" className="text-slate-200 light:text-slate-800 hover:text-blue-500 font-semibold font-mono text-sm sm:text-base">
+                  <span className="block text-[11px] font-mono text-slate-600 dark:text-slate-400 uppercase">Email Me</span>
+                  <a href="mailto:khushboorawat109@gmail.com" className="text-slate-900 dark:text-slate-200 hover:text-blue-500 font-semibold font-mono text-sm sm:text-base">
                     khushboorawat109@gmail.com
                   </a>
                 </div>
@@ -143,8 +148,8 @@ const Contact = ({ theme }) => {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <span className="block text-[11px] font-mono text-slate-550 uppercase">Location</span>
-                  <span className="text-slate-200 light:text-slate-800 font-semibold text-sm sm:text-base">
+                  <span className="block text-[11px] font-mono text-slate-600 dark:text-slate-400 uppercase">Location</span>
+                  <span className="text-slate-900 dark:text-slate-200 font-semibold text-sm sm:text-base">
                     Palwal, Haryana
                   </span>
                 </div>
